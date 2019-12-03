@@ -1,0 +1,45 @@
+{
+  "consumer": {
+    "name": "movieSortAndDisplay"
+  },
+  "provider": {
+    "name": "movieService"
+  },
+  "interactions": [
+    {
+      "description": "Movies info",
+      "request": {
+        "method": "GET",
+        "path": "/movies"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "movies": [
+            {
+              "title": "Some movie"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.movies": {
+            "min": 1
+          },
+          "$.body.movies[*].*": {
+            "match": "type"
+          },
+          "$.body.movies[*].title": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

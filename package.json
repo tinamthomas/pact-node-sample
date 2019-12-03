@@ -1,0 +1,45 @@
+{
+  "name": "SampleNodeApp",
+  "version": "1.0.0",
+  "description": "A simple node server application",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ../app1",
+    "start:dev": "nodemon --watch 'src/**/*.ts' --ignore 'tests/**/*.test.ts' --exec 'ts-node' src/app.ts",
+    "build:provider": "cd provider && yarn && yarn start",
+    "build:consumer": "cd consumer && yarn && yarn start",
+    "start:provider": "yarn build:provider && node ./dist/app",
+    "start:consumer": "yarn build:consumer && node ./dist/app",
+    "lint": "tslint 'src/**/*.ts'",
+    "lint-fix": "tslint 'src/**/*.ts' --fix"
+  },
+  "author": "Tina Thomas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ts-node": "^6.0.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/jest": "^22.2.3",
+    "jest": "^22.4.3",
+    "ts-jest": "^22.4.4",
+    "nodemon": "^1.17.4"
+  }
+}
