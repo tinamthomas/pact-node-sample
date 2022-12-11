@@ -14,7 +14,7 @@
   "author": "Tina Thomas",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "pact": "^4.3.2",
     "ts-node": "^6.0.2",
     "tslint": "^5.10.0",
